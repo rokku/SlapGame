@@ -9,14 +9,16 @@
 // build 15 items. 3 Qs, 5 Ws, 7 Ds.
 
 
-$health;
-$health['queen'] = '100';
-$health['worker'] = '75';
-$health['drone'] = '50';
-
-class Army
+class Bees
 {
 //  function __construct() { print "in army";}
+
+  protected $type = array(
+                      'queen' => array('attack' => 7, 'health' => 100),
+                      'worker' => array('attack' => 12, 'health' => 75),
+                      'drone' => array('attack' => 18, 'health' => 80)
+                    );
+
 
   public function buildArmy($queen,$worker,$drone) {
     $army = array();
@@ -39,19 +41,26 @@ class Army
     return $army;
   }
 
-  private function buildSoldier($type,$unit) {
-	global $health;
-    $soldier[$type][] = $health[$type];
-    return $soldier;
+  private function buildSoldier($rank,$unit) {
 
+$soldier['health'] = $this->type[$rank]['health']; 	  $soldier['rank'] = $rank;
+    return $soldier;
   }
 
 }
 
-$army = new Army();
+$army = new Bees();
+
+$_SESSION['bees'] = array();
 
 $bees = $army->buildArmy(3,5,7);
 
-//print_r($bees);
+$_SESSION['bees'] = $bees;
+
+foreach($bees AS $key=>$value) {
+  echo $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
+}
+
+print_r($_SESSION);
 
 ?>
