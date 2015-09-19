@@ -1,5 +1,8 @@
 <?php
 
+
+  session_start();
+
 /**
  * Welcome to BeeSlap!
  * @author Mark Bridgeman <mark.bridgeman@gmail.com>
@@ -23,7 +26,6 @@ class Bees
   public function buildArmy($queen,$worker,$drone) {
 
     $army = array();
-
     //Build queens
 
     for($i=1;$i<=$queen;$i++) {
@@ -38,16 +40,14 @@ class Bees
     for($i=1;$i<=$drone;$i++) {
       $army[] = $this->buildSoldier('drone',$i);
     }
-
     return $army;
-
-
   }
 
   private function buildSoldier($rank,$unit) {
 	//print_r($this->_type);
     $soldier['health'] = $this->_type[$rank]['health'];
     $soldier['attack'] = $this->_type[$rank]['attack'];
+    $soldier['status'] = 'alive';
     $soldier['rank'] = $rank;
     return $soldier;
 
@@ -63,9 +63,9 @@ class Attack
     // Attacking! First, choose a bee to attack
     // @todo We could always put in a roll here to see whether the attack actually hits
     // but apparently we're really sharp so all hits are 100% likely to land.
-    echo 'attacking';
-    $target = $this->chooseBee(); // target acquired
 
+    $target = $this->chooseBee(); // target acquired
+    echo $target;
     $this->hit($target); // Hit the bee, and proceed.
 
   }
@@ -73,27 +73,24 @@ class Attack
   private function chooseBee() {
     // Only choose bees that are live (hp > 0)
     $target = array_rand($_SESSION['bees']);
+    if($_SESSION['bees'][$target]['status']=='dead') {$target = $this->chooseBee();}
     return $target;
   }
   private function hit($bee) {
+    echo 'This bee: '.$target.'<br/>';
 
-    $rank = $bee['rank'];
-    $health = (int)$bee['health'];
-    $attackValue = (int)$bee['attack'];
+    $health = (int)$_SESSION["bees"][$bee]['health'];
+    echo 'Health '.$health.'<br/>';
+    $attackValue = (int)$_SESSION["bees"][$bee]['attack'];
+    echo 'Attack: '.$attackValue;
     $health = $health-$attackValue;
-
-    print_r($bee);
+    if($health <=0) {
+      $_SESSION["bees"][$bee]["status"]="dead"; echo 'KILL SHOT!';
+    }
+    $_SESSION["bees"][$bee]["health"] = $health;
+    echo '<br/>';
   }
 
-  private function getHealth($bee)
-  {
-    # code...
-  }
-
-  public function isDead($bee)
-  {
-    # code...
-  }
 }
 
 class Inventory {
@@ -109,36 +106,52 @@ class Inventory {
 }
 
 
-$army = new Bees();
-
 
 if(isset($_GET['hit'])) {
+
+  echo 'Preparing to hit';
   $attack = new Attack;
   $attack->startAttack();
+
+  foreach($_SESSION["bees"] AS $key=>$value) {
+    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li><br/>';
+  }
+  echo $showArmy;
 }
 
-elseif(isset($_GET['restart'])) {}
+elseif(isset($_GET['restart'])) {
+  unset($_SESSION['bees']);
+  header("Location: index.php");
+}
 
 else {
+  $army = new Bees();
   $buildArmy = $army->buildArmy(3,5,7);
-  $_SESSION['bees'] = array();
-  $_SESSION['bees'] = $buildAarmy;
-}
 
-print_r($_SESSION['bees']);
-foreach($_SESSION['bees'] AS $key=>$value) {
-  $showArmy .= $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
+  $_SESSION["bees"] = array();
+  $_SESSION["bees"] = $buildArmy;
+
+  foreach($buildArmy AS $key=>$value) {
+    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li><br/>';
+  }
+  echo 'New game'; echo $showArmy;
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <?=$showArmy;?>
+
     <a href="?hit">Hit</a> | <a href="?restart">Restart</a>
-  </body>
-</html>
+
+    <style type="text/css">
+     a {   display: block;
+    width: 200px;
+    font-size: 50px;
+    background: #ff0000;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    float:left;
+}
+
+li.dead {background:#efefef;}
+</style>
