@@ -44,8 +44,8 @@ class Bees
   }
 
   private function buildSoldier($rank,$unit) {
-
-    $soldier['health'] = $this->type[$rank]['health'];
+	//print_r($this->_type);
+    $soldier['health'] = $this->_type[$rank]['health'];
     $soldier['rank'] = $rank;
     return $soldier;
 
@@ -95,6 +95,8 @@ $army = new Bees();
 
 
 $bees = $army->buildArmy(3,5,7);
+
+print_r($_SESSION['bees']);
 
 
 
