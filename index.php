@@ -18,7 +18,7 @@ session_start();
 // build 15 items. 3 Qs, 5 Ws, 7 Ds.
 
 
-class Bees
+class Bees extends ArrayObject
 {
 //  function __construct() { print "in army";}
 
