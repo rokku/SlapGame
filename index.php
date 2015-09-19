@@ -93,12 +93,9 @@ class Inventory {
 
 $army = new Bees();
 
-
-$bees = $army->buildArmy(3,5,7);
-
-print_r($_SESSION['bees']);
-
-
+if(!$_SESSION['bees']) {
+  $army->buildArmy(3,5,7);
+}
 
 foreach($_SESSION['bees'] AS $key=>$value) {
   echo $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
