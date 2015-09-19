@@ -98,7 +98,7 @@ $bees = $army->buildArmy(3,5,7);
 
 
 
-foreach($bees AS $key=>$value) {
+foreach($_SESSION['bees'] AS $key=>$value) {
   echo $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
 }
 
