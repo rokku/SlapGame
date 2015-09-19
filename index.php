@@ -133,7 +133,7 @@ elseif(isset($_GET['restart'])) {
 }
 
 else {
-  $army = new Create;
+  $army = new Create();
   $buildArmy = $army->buildArmy(3,5,7);
 
   $_SESSION["bees"] = array();
