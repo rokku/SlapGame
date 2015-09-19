@@ -104,6 +104,4 @@ foreach($_SESSION['bees'] AS $key=>$value) {
   echo $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
 }
 
-print_r($_SESSION);
-
 ?>
