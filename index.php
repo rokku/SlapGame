@@ -19,7 +19,6 @@ class Bees
                       'drone' => array('attack' => 18, 'health' => 80)
                     );
 
-
   public function buildArmy($queen,$worker,$drone) {
 
     $army = array();
@@ -47,7 +46,8 @@ class Bees
 	//print_r($this->_type);
     $soldier['health'] = $this->_type[$rank]['health'];
     $soldier['rank'] = $rank;
-    return $soldier;
+    $soldier['attack'] = $this->_type['$rank']['attack'];
+return $soldier;
 
   }
 
@@ -61,25 +61,27 @@ class Attack
     // Attacking! First, choose a bee to attack
     // @todo We could always put in a roll here to see whether the attack actually hits
     // but apparently we're really sharp so all hits are 100% likely to land.
-
+	echo 'starting attack';
     $target = $this->chooseBee(); // target acquired
-
+echo $target;
+print_r($target);
     $this->hit($target); // Hit the bee, and proceed.
 
   }
 
-  private function chooseBee() {
+ function chooseBee() {
     // Only choose bees that are live (hp > 0)
-    $target = array_rand($_SESSION['bees']);
+	$target = array_rand($_SESSION['bees']);
     return $target;
   }
   private function hit($bee) {
-
-    $rank = $bee['rank'];
-    $health = (int)$bee['health'];
-    $attackValue = (int)$this->_type[$rank]['attack'];
-    $health = $health-$attackValue;
-    print_r($bee);
+print_r($_SESSION['bees'][$bee]);
+    $rank = $_SESSION['bees'][$bee]['rank'];
+$health = (int)$_SESSION['bees'][$bee]['health'];
+    $attackValue = (int)$_SESSION['bees'][$bee]['attack'];
+    echo 'attack'.$attackValue;
+$health = $health-$attackValue;
+    echo 'new health'; echo $health;
   }
 
   private function deductHealth($bee) {
@@ -120,6 +122,15 @@ foreach($_SESSION['bees'] AS $key=>$value) {
   echo $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
 }
 
+if(isset($_GET['hit'])) {
+$attack = new Attack;
+$attack->startAttack();
+}
+
+if(isset($_GET['restart'])) {
+unset($_SESSION['bees']);
+header("Location: index.php");
+}
 ?>
 
 <a href="?hit">Hit</a> | <a href="?restart">Restart</a>
