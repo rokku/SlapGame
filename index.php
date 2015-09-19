@@ -111,9 +111,6 @@ class Inventory {
 
 $army = new Bees();
 
-foreach($_SESSION['bees'] AS $key=>$value) {
-  $showArmy .= $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
-}
 
 if(isset($_GET['hit'])) {
   $attack = new Attack;
@@ -126,6 +123,11 @@ else {
   $buildArmy = $army->buildArmy(3,5,7);
   $_SESSION['bees'] = array();
   $_SESSION['bees'] = $buildAarmy;
+}
+
+
+foreach($_SESSION['bees'] AS $key=>$value) {
+  $showArmy .= $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
 }
 
 ?>
