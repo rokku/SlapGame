@@ -1,5 +1,5 @@
 <?php
-namespace \Application\Controller;
+namespace Application\Controller;
 
 class Battle
 {
