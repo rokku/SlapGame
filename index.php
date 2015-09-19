@@ -41,6 +41,7 @@ class Bees
 
     $_SESSION['bees'] = array();
     $_SESSION['bees'] = $army;
+    print_r($_SESSION['bees']);
   }
 
   private function buildSoldier($rank,$unit) {
@@ -109,8 +110,6 @@ class Inventory {
 
 
 $army = new Bees();
-
-
 
 foreach($_SESSION['bees'] AS $key=>$value) {
   $showArmy .= $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
