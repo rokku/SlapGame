@@ -1,5 +1,5 @@
 <?php
-namespace \Application\Model\Bees
+namespace \Application\Model\Bees;
 
 class Bees extends ArrayObject
 {
