@@ -4,9 +4,8 @@
 // Add control domain -- controls ask for the tasks.
 // Add view -- views show the task results.
 
-
-session_start();
-
+// Start composer
+require_once __DIR__ . '/vendor/autoload.php';
 
 
 /**
@@ -17,7 +16,7 @@ session_start();
 
 // build 15 items. 3 Qs, 5 Ws, 7 Ds.
 
-
+/*
 class Bees extends ArrayObject
 {
 //  function __construct() { print "in army";}
@@ -83,21 +82,22 @@ class Attack
     return $target;
   }
   private function hit($bee) {
-    echo 'This bee: '.$target.'<br/>';
+
+    //echo 'This bee: '.$target.'<br/>';
 
     $health = (int)$_SESSION["bees"][$bee]['health'];
-    echo 'Health '.$health.'<br/>';
+    //echo 'Health '.$health.'<br/>';
     $attackValue = (int)$_SESSION["bees"][$bee]['attack'];
-    echo 'Attack: '.$attackValue;
+    //echo 'Attack: '.$attackValue;
     $health = $health-$attackValue;
     if($health <=0) {
       $_SESSION["bees"][$bee]["status"]="dead"; echo 'KILL SHOT!';
     }
     $_SESSION["bees"][$bee]["health"] = $health;
-    echo '<br/>';
+    //echo '<br/>';
   }
 
-}
+}*/
 
 class Inventory {
 
@@ -111,7 +111,9 @@ class Inventory {
 
 }
 
-
+use \Application\Controller\Battle;
+use \Application\Controller\Army;
+use \Application\Model\Bees;
 
 if(array_key_exists('hit',$_GET)) {
 
