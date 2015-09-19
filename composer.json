@@ -1,4 +1,10 @@
 {
+
+    "autoload": {
+      "psr-4": {
+          "Application\\": "src/Application/",
+      }
+    }
     "require": {
         "twbs/bootstrap": "^3.3"
     }
