@@ -61,7 +61,7 @@ class Attack
     // Attacking! First, choose a bee to attack
     // @todo We could always put in a roll here to see whether the attack actually hits
     // but apparently we're really sharp so all hits are 100% likely to land.
-
+    echo 'attacking';
     $target = $this->chooseBee(); // target acquired
 
     $this->hit($target); // Hit the bee, and proceed.
