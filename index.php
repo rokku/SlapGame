@@ -56,11 +56,30 @@ class Bees
 class Attack
 {
 
-  function chooseBee() {
-    // Only choose bees that are live (hp > 0)
-  }
-  function hit($bee) {
+  public function startAttack() {
 
+    // Attacking! First, choose a bee to attack
+    // @todo We could always put in a roll here to see whether the attack actually hits
+    // but apparently we're really sharp so all hits are 100% likely to land.
+
+    $target = $this->chooseBee(); // target acquired
+
+    $this->hit($target); // Hit the bee, and proceed.
+
+  }
+
+  private function chooseBee() {
+    // Only choose bees that are live (hp > 0)
+    $target = array_rand($_SESSION['bees']);
+    return $target;
+  }
+  private function hit($bee) {
+
+    $rank = $bee['rank']
+    $health = (int)$bee['health'];
+    $attackValue = (int)$this->_type[$rank]['attack'];
+    $health = $health-$attackValue;
+    print_r($bee);
   }
 
   private function deductHealth($bee) {
@@ -102,3 +121,5 @@ foreach($_SESSION['bees'] AS $key=>$value) {
 }
 
 ?>
+
+<a href="?hit">Hit</a> | <a href="?restart">Restart</a>
