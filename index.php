@@ -39,9 +39,9 @@ class Bees
       $army[] = $this->buildSoldier('drone',$i);
     }
 
-    $_SESSION['bees'] = array();
-    $_SESSION['bees'] = $army;
-    print_r($_SESSION['bees']);
+    return $army;
+
+
   }
 
   private function buildSoldier($rank,$unit) {
@@ -123,7 +123,9 @@ if(isset($_GET['hit'])) {
 elseif(isset($_GET['restart'])) {}
 
 else {
-  $army->buildArmy(3,5,7);
+  $buildArmy = $army->buildArmy(3,5,7);
+  $_SESSION['bees'] = array();
+  $_SESSION['bees'] = $buildAarmy;
 }
 
 ?>
