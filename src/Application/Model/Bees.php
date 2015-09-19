@@ -1,7 +1,7 @@
 <?php
 namespace Application\Model\Bees;
 
-class Create extends \ArrayObject
+class CreateBees extends \ArrayObject
 {
 //  function __construct() { print "in army";}
 
