@@ -1,7 +1,7 @@
 <?php
 namespace Application\Model\Bees;
 
-class Bees extends ArrayObject
+class Bees extends \ArrayObject
 {
 //  function __construct() { print "in army";}
 
