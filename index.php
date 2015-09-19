@@ -113,7 +113,7 @@ class Inventory {
 
 use \Application\Controller\Battle;
 use \Application\Controller\Army;
-use \Application\Model\Bees\CreateBees;
+use \Application\Model\Bees;
 
 if(array_key_exists('hit',$_GET)) {
 
