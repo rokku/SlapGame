@@ -5,13 +5,13 @@ class Bees extends ArrayObject
 {
 //  function __construct() { print "in army";}
 
-/*
+
   protected $_type = array(
                       'queen' => array('attack' => 7, 'health' => 100),
                       'worker' => array('attack' => 12, 'health' => 75),
                       'drone' => array('attack' => 18, 'health' => 80)
                     );
-*/
+
 
   public function buildArmy($queen,$worker,$drone) {
 

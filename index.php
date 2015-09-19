@@ -111,14 +111,14 @@ class Inventory {
 
 }
 
-use \Application\Controller\Battle;
-use \Application\Controller\Army;
-use \Application\Model\Bees;
+use Application\Controller\Battle;
+use Application\Controller\Army;
+use Application\Model\Bees;
 
 if(array_key_exists('hit',$_GET)) {
 
   echo 'Preparing to hit';
-  $attack = new Attack;
+  $attack = new Application\Controller\Battle;
   $attack->startAttack();
 
   foreach($_SESSION["bees"] AS $key=>$value) {
@@ -133,7 +133,7 @@ elseif(isset($_GET['restart'])) {
 }
 
 else {
-  $army = new Bees();
+  $army = new Application\Model\Bees;
   $buildArmy = $army->buildArmy(3,5,7);
 
   $_SESSION["bees"] = array();
