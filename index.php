@@ -114,7 +114,7 @@ class Inventory {
 if(array_key_exists('hit',$_GET)) {
 
   echo 'Preparing to hit';
-  $attack = new Battle;
+  $attack = new Application\Controller\Battle;
   $attack->startAttack();
 
   foreach($_SESSION["bees"] AS $key=>$value) {
