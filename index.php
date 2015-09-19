@@ -125,7 +125,7 @@ else {
   $_SESSION['bees'] = $buildAarmy;
 }
 
-
+print_r($_SESSION['bees']);
 foreach($_SESSION['bees'] AS $key=>$value) {
   $showArmy .= $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
 }
