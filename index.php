@@ -75,7 +75,7 @@ class Attack
   }
   private function hit($bee) {
 
-    $rank = $bee['rank']
+    $rank = $bee['rank'];
     $health = (int)$bee['health'];
     $attackValue = (int)$this->_type[$rank]['attack'];
     $health = $health-$attackValue;
