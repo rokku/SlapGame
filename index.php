@@ -111,9 +111,9 @@ class Inventory {
 
 }
 
-use \Application\Controller\Battle\;
-use \Application\Controller\Army\;
-use \Application\Model\Bees\;
+use \Application\Controller\Battle;
+use \Application\Controller\Army;
+use \Application\Model\Bees\Create;
 
 if(array_key_exists('hit',$_GET)) {
 
@@ -133,7 +133,7 @@ elseif(isset($_GET['restart'])) {
 }
 
 else {
-  $army = new Bees();
+  $army = new Create;
   $buildArmy = $army->buildArmy(3,5,7);
 
   $_SESSION["bees"] = array();
