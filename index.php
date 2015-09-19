@@ -46,6 +46,7 @@ class Bees
   private function buildSoldier($rank,$unit) {
 	//print_r($this->_type);
     $soldier['health'] = $this->_type[$rank]['health'];
+    $soldier['attack'] = $this->_type[$rank]['attack'];
     $soldier['rank'] = $rank;
     return $soldier;
 
@@ -77,7 +78,7 @@ class Attack
 
     $rank = $bee['rank'];
     $health = (int)$bee['health'];
-    $attackValue = (int)$this->_type[$rank]['attack'];
+    $attackValue = (int)$bee['attack'];
     $health = $health-$attackValue;
 
     print_r($bee);
@@ -109,12 +110,10 @@ class Inventory {
 
 $army = new Bees();
 
-if(!$_SESSION['bees']) {
-  $army->buildArmy(3,5,7);
-}
+
 
 foreach($_SESSION['bees'] AS $key=>$value) {
-  echo $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
+  $showArmy .= $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
 }
 
 if(isset($_GET['hit'])) {
@@ -122,6 +121,22 @@ if(isset($_GET['hit'])) {
   $attack->startAttack();
 }
 
-?>
+elseif(isset($_GET['restart'])) {}
 
-<a href="?hit">Hit</a> | <a href="?restart">Restart</a>
+elseif(!$_SESSION['bees']) {
+  $army->buildArmy(3,5,7);
+}
+
+?>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <?=$showArmy;?>
+    <a href="?hit">Hit</a> | <a href="?restart">Restart</a>
+  </body>
+</html>
