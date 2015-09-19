@@ -22,7 +22,6 @@ if(array_key_exists('hit',$_GET)) {
   foreach($_SESSION["bees"] AS $key=>$value) {
     $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li><br/>';
   }
-  echo $showArmy;
 }
 
 elseif(isset($_GET['restart'])) {
