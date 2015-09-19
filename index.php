@@ -40,7 +40,7 @@ else {
   foreach($buildArmy AS $key=>$value) {
     $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li><br/>';
   }
-  $showArmy = 'New game'.$showArmy; 
+  $showArmy = 'New game'.$showArmy;
 }
 
 ?>
@@ -67,7 +67,7 @@ li.dead {background:#efefef;}
 </style>
   </head>
   <body>
-    echo $showArmy;
+    <?=$showArmy;?>
         <a href="?hit">Hit</a> | <a href="?restart">Restart</a>
 
 
