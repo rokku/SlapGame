@@ -79,11 +79,8 @@ class Attack
     $health = (int)$bee['health'];
     $attackValue = (int)$this->_type[$rank]['attack'];
     $health = $health-$attackValue;
+
     print_r($bee);
-  }
-
-  private function deductHealth($bee) {
-
   }
 
   private function getHealth($bee)
@@ -118,6 +115,11 @@ if(!$_SESSION['bees']) {
 
 foreach($_SESSION['bees'] AS $key=>$value) {
   echo $value['rank'].' #'.$key.' - hp: '.$value['health'].'<br/>';
+}
+
+if(isset($_GET['hit'])) {
+  $attack = new Attack;
+  $attack->startAttack();
 }
 
 ?>
