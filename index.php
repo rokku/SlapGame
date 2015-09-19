@@ -123,12 +123,11 @@ if(isset($_GET['hit'])) {
 
 elseif(isset($_GET['restart'])) {}
 
-elseif(!$_SESSION['bees']) {
+else {
   $army->buildArmy(3,5,7);
 }
 
 ?>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
   <head>
