@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Ad model domain -- models do the tasks.
 // Add control domain -- controls ask for the tasks.
 // Add view -- views show the task results.
