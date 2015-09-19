@@ -107,7 +107,7 @@ class Inventory {
 
 
 
-if(isset($_GET['hit'])) {
+if(array_key_exists('hit',$_GET)) {
 
   echo 'Preparing to hit';
   $attack = new Attack;
