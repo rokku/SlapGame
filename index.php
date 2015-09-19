@@ -118,7 +118,7 @@ use Application\Model\Bees;
 if(array_key_exists('hit',$_GET)) {
 
   echo 'Preparing to hit';
-  $attack = new Application\Controller\Battle;
+  $attack = new Battle;
   $attack->startAttack();
 
   foreach($_SESSION["bees"] AS $key=>$value) {
