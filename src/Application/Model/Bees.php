@@ -1,5 +1,14 @@
 <?php
 namespace Application\Model;
+use Application\Model\Queen;
+use Application\Model\Worker;
+use Application\Model\Drone;
+
+interface Soldier {
+
+  public function create($rank,$health,$attack);
+
+}
 
 class Bees
 {
@@ -14,25 +23,28 @@ class Bees
   public function buildArmy($queen,$worker,$drone) {
 
     $army = array();
-    //Build queens
 
-    for($i=1;$i<=$queen;$i++) {
-      $army[] = $this->buildSoldier('queen',$i);
-    }
+    //Build queens
+    $queens = new Queen(3);
+    $queenSoldiers = $queens->create();
 
     //Build workers
-    for($i=1;$i<=$worker;$i++) {
-      $army[] = $this->buildSoldier('worker',$i);
-    }
+    $workers = new Worker(5);
+    $workerSoldiers = $workers->create();
+
     //Build drones
-    for($i=1;$i<=$drone;$i++) {
-      $army[] = $this->buildSoldier('drone',$i);
-    }
+    $drones = new Drone(7);
+    $droneSoldiers = $drones->create();
+
+    array_push($army,$queenSoldiers);
+    array_push($army,$workerSoldiers);
+    array_push($army,$droneSoldiers);
+
     return $army;
   }
 
   private function buildSoldier($rank,$unit) {
-	//print_r($this->_type);
+
     $soldier['health'] = $this->_type[$rank]['health'];
     $soldier['attack'] = $this->_type[$rank]['attack'];
     $soldier['status'] = 'alive';
