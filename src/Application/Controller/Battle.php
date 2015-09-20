@@ -56,11 +56,13 @@ class Battle
     $bees = $_SESSION['bees'];
     $queens = array();
     foreach($bees AS $key=>$value) {
-      $index = $key.' - '.$value;
-      if(array_key_exists($index,$queens)) {
-        $queens[$index]++;
-      } else {
-        $queens[$index]=1;
+      foreach($value AS $key2=>$value2) {
+        $index = $key2.' - '.$value2;
+        if(array_key_exists($index,$queens)) {
+          $queens[$index]++;
+        } else {
+          $queens[$index]=1;
+        }
       }
     }
     print_r($queens);
