@@ -54,7 +54,7 @@ class Battle
   private function countQueens() {
     echo 'Counting queens';
     print_r($_SESSION['bees']);
-    $queens = array_keys($_SESSION['bees'],'queen');
+    $queens = array_search('queen',$_SESSION['bees']);
     print_r($queens);
 
   }
