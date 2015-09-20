@@ -5,7 +5,7 @@ use Application\Model\Bees;
 class Queen extends Bees implements Soldier
 {
   public $health;
-  public $rank; 
+  public $rank;
   public $attack;
 
   function __construct($soldiers) {
@@ -17,16 +17,16 @@ class Queen extends Bees implements Soldier
     $this->rank = 'queen';
     $this->attack = '7';
     $army = array();
-    for($i=0;$i>=$this->num_of_soldiers;$i++) {
+    for($i=0;$i>=$num_of_soldiers;$i++) {
 
-        $army[] = $this->buildSolider($this->health,$this->rank,$this->attack);
+        $army[] = $this->buildSoldier($this->health,$this->rank,$this->attack);
 
     }
     print_r($army);
     return $army;
   }
 
-  private function buildSolider($health,$rank,$attack) {
+  private function buildSoldier($health,$rank,$attack) {
     $soldier['health'] = $health;
     $soldier['rank'] = $rank;
     $soldier['attack'] = $attack;
