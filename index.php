@@ -48,6 +48,7 @@ else {
   <head>
     <meta charset="utf-8">
     <title>SlappR!</title>
+    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style type="text/css">
       a {
         display: block;
@@ -69,6 +70,7 @@ else {
         <a href="?hit">Hit</a> | <a href="?restart">Restart</a>
 
 
-
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
