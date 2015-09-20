@@ -103,6 +103,8 @@ else {
       }
       li.hit {
           border: 3px solid #f00;
+          from {background: #f00;}
+          to {background: inherit;}
       }
       li.dead {
           background: #000;
