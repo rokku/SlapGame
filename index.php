@@ -32,7 +32,7 @@ elseif(isset($_GET['restart'])) {
 else {
   $army = new Application\Model\Bees();
   $buildArmy = $army->buildArmy(3,5,7);
-  print_r($buildArmy);
+  print_r($buildArmy);echo 'done?';
   $_SESSION["bees"] = $buildArmy;
 
   foreach($buildArmy AS $key=>$value) {
