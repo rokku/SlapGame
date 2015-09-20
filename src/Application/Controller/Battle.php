@@ -34,7 +34,7 @@ class Battle
   }
 
   private function rollHit($bee,$attackValue,$currentHP) {
-    $remainingHP = $health-$attackValue;
+    $remainingHP = $currentHP-$attackValue;
 
     if($remainingHP <=0) {
       $this->killBee($bee);
