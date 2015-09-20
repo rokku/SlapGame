@@ -51,7 +51,10 @@ else {
     <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style type="text/css">
       li.dead {background:#efefef;}
-  </style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
   </head>
   <body>
 
