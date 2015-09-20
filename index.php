@@ -34,8 +34,8 @@ else {
   $buildArmy = $army->buildArmy(3,5,7);
   print_r($buildArmy);echo 'done?';
   $_SESSION["bees"] = $buildArmy;
-
-  foreach($buildArmy AS $key=>$value) {
+print_r($_SESSION["bees"]);echo 'done?';
+  foreach($_SESSION["bees"] AS $key=>$value) {
     $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
   }
   $showArmy = 'New game'.$showArmy;
