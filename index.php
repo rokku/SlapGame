@@ -55,6 +55,41 @@ else {
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
+
+
+li {
+display:block;
+width: 18%;
+height: 60px;
+padding: 10px;
+border:1px solid #ccc;
+float:left;
+margin: 10px;
+}
+
+li.
+
+ul {
+display:block
+width: 100%;
+clear:both;
+}
+
+a {clear:both;
+}
+
+li.queen {
+background:purple;
+color:#fff;
+}
+
+li.worker {
+background: orange;
+}
+
+li.drone {
+background:#ccc;
+}
     </style>
   </head>
   <body>
