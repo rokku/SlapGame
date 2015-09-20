@@ -39,7 +39,7 @@ class Bees
     array_merge($army,$queenSoldiers);
     array_merge($army,$workerSoldiers);
     array_merge($army,$droneSoldiers);
-
+print_r($army);
     return $army;
   }
 
