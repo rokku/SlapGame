@@ -17,10 +17,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 if(array_key_exists('hit',$_GET)) {
 
   $attack = new SlapGame\Combat\Battle();
-  $attack->startAttack();
+  $hit = $attack->startAttack();
 
   foreach($_SESSION["bees"] AS $key=>$value) {
-    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
+    if($key == $hit) {$addclass = ' hit';} else {$addclass='';}
+    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].''.$addclass.'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
   }
 }
 
@@ -89,6 +90,10 @@ background: orange;
 
 li.drone {
 background:#ccc;
+}
+
+li.hit {
+  border:3px solid #f00;
 }
     </style>
   </head>

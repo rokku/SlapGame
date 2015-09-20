@@ -15,6 +15,7 @@ class Battle
     $target = $this->chooseBee(); // target acquired
     $this->hit($target); // Hit the bee, and proceed.
     if($this->countQueens()<=0) { $this->endBattle(); }
+    return $target;
   }
 
   private function chooseBee() {
