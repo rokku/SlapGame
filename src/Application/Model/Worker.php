@@ -20,7 +20,6 @@ class Worker extends Bees implements Soldier
         $army[] = $this->buildSoldier($this->health,$this->rank,$this->attack);
 
     }
-    print_r($army);
     return $army;
   }
 
