@@ -46,7 +46,7 @@ class Battle
   }
 
   private function killBee($bee) {
-    $_SESSION["bees"][$bee]["status"]="dead"; echo 'KILL SHOT!';
+    $_SESSION["bees"][$bee]["status"]="dead";
   }
 
   private function setHealth($bee,$health) {

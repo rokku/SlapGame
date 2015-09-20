@@ -52,49 +52,54 @@ else {
     <title>SlappR!</title>
     <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style type="text/css">
-      li.dead {background:#efefef;}
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
+
+          body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+          }
 
 
-li {
-display:block;
-width: 18%;
-height: 60px;
-padding: 10px;
-border:1px solid #ccc;
-float:left;
-margin: 10px;
-}
+    li {
+    display:block;
+    width: 18%;
+    height: 60px;
+    padding: 10px;
+    border:1px solid #ccc;
+    float:left;
+    margin: 10px;
+    }
 
-li.
+    li.
 
-ul {
-display:block
-width: 100%;
-clear:both;
-}
+    ul {
+    display:block
+    width: 100%;
+    clear:both;
+    }
 
-a {clear:both;
-}
+    a {clear:both;
+    }
 
-li.queen {
-background:purple;
-color:#fff;
-}
+    li.queen {
+    background:purple;
+    color:#fff;
+    }
 
-li.worker {
-background: orange;
-}
+    li.worker {
+    background: orange;
+    }
 
-li.drone {
-background:#ccc;
-}
+    li.drone {
+    background:#ccc;
+    }
 
-li.hit {
-  border:3px solid #f00;
-}
+    li.hit {
+      border:3px solid #f00;
+    }
+
+    li.dead {background:#000;
+    color:#ccc;
+    }
+
     </style>
   </head>
   <body>
