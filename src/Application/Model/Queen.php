@@ -30,6 +30,7 @@ class Queen extends Bees implements Soldier
     $soldier['rank'] = $rank;
     $soldier['attack'] = $attack;
     $soldier['status'] = 'alive';
+    print_r($soldier);
     return $soldier;
   }
 
