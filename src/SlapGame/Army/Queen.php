@@ -15,6 +15,7 @@ class Queen extends Bees implements Soldier
   }
 
   public function create($army) {
+    print_r($army);
     if(!$army) {
       throw new \Exception('No army is available');
     }
