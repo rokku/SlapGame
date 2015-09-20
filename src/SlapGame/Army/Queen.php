@@ -16,7 +16,7 @@ class Queen extends Bees implements Soldier
 
   public function create($army) {
     if(!$army) {
-      throw new Exception('No army is available');
+      throw new \Exception('No army is available');
     }
     // Create the soldiers for this subclass type, and push into
     // the $army array();
@@ -24,7 +24,7 @@ class Queen extends Bees implements Soldier
     for($i=1;$i<=$this->num_of_soldiers;$i++) {
         try {
           $army[] = $this->buildSoldier($this->health,$this->rank,$this->attack);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
           echo 'Error: could not create this soldier - ', $e->getMessage(), "\n";
         }
     }
@@ -33,7 +33,7 @@ class Queen extends Bees implements Soldier
 
   public function buildSoldier($health,$rank,$attack) {
     if(!$health || !$rank || !$attack) {
-      throw new Exception('Any new soldier needs all stats to be presented');
+      throw new \Exception('Any new soldier needs all stats to be presented');
     }
     $soldier['health'] = $health;
     $soldier['rank'] = $rank;
