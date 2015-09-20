@@ -1,12 +1,12 @@
 <?php
-namespace Application\Model;
-use Application\Model\Bees;
+namespace SlapGame\Army;
+use SlapGame\Army\Bees;
 
-class Worker extends Bees implements Soldier
+class Queen extends Bees implements Soldier
 {
-  public $health = 75;
-  public $rank = 'worker';
-  public $attack = '12';
+  public $health = '100';
+  public $rank = 'queen';
+  public $attack = '7';
 
   function __construct($soldiers) {
     $this->num_of_soldiers = $soldiers;
@@ -19,6 +19,7 @@ class Worker extends Bees implements Soldier
         $army[] = $this->buildSoldier($this->health,$this->rank,$this->attack);
 
     }
+
     return $army;
   }
 

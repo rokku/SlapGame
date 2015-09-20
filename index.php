@@ -16,7 +16,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 if(array_key_exists('hit',$_GET)) {
 
-  $attack = new Application\Controller\Battle();
+  $attack = new SlapGame\Combat\Battle();
   $attack->startAttack();
 
   foreach($_SESSION["bees"] AS $key=>$value) {
@@ -30,9 +30,9 @@ elseif(isset($_GET['restart'])) {
 }
 
 else {
-  $army = new Application\Model\Bees();
+  $army = new SlapGame\Army\Bees();
   $buildArmy = $army->buildArmy(3,5,7);
-  
+
   $_SESSION["bees"] = $buildArmy;
 
   foreach($_SESSION["bees"] AS $key=>$value) {

@@ -1,8 +1,8 @@
 <?php
-namespace Application\Model;
-use Application\Model\Queen;
-use Application\Model\Worker;
-use Application\Model\Drone;
+namespace SlapGame\Army;
+use SlapGame\Army\Queen;
+use SlapGame\Army\Worker;
+use SlapGame\ArmyDrone;
 
 interface Soldier {
 
@@ -36,8 +36,6 @@ class Bees
     $drones = new Drone($drone);
     $army = $drones->create($army);
 
-
-print_r($army);
     return $army;
   }
 

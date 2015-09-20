@@ -1,5 +1,5 @@
 <?php
-namespace Application\Controller;
+namespace SlapGame\Combat;
 
 class Battle
 {
@@ -34,7 +34,7 @@ class Battle
   }
 
   private function rollHit($bee,$attackValue,$currentHP) {
-    
+
     $remainingHP = $currentHP-$attackValue;
 
     if($remainingHP <=0) {
