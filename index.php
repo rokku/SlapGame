@@ -73,7 +73,7 @@ else {
 
     <div class="container">
     <?=$showArmy;?>
-        <button href="?hit" class="btn btn-danger" type="button">Hit</button> | <button href="?restart" class="btn btn-primary" type="button">Restart</button>
+        <a href="?hit" class="btn btn-danger" type="button">Hit</a> | <a href="?restart" class="btn btn-primary" type="button">Restart</a>
 
       </div>
         <script src="http://code.jquery.com/jquery.js"></script>
