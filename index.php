@@ -35,7 +35,7 @@ else {
   $_SESSION["bees"] = $buildArmy;
 
   foreach($buildArmy AS $key=>$value) {
-    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li><br/>';
+    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
   }
   $showArmy = 'New game'.$showArmy;
 }
@@ -81,7 +81,9 @@ else {
     </div>
 
     <div class="container">
-    <?=$showArmy;?>
+      <ul>
+        <?=$showArmy;?>
+      </ul>
         <a href="?hit" class="btn btn-danger" type="button">Hit</a> | <a href="?restart" class="btn btn-primary" type="button">Restart</a>
 
       </div>
