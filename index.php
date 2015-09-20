@@ -20,7 +20,7 @@ if(array_key_exists('hit',$_GET)) {
   $attack->startAttack();
 
   foreach($_SESSION["bees"] AS $key=>$value) {
-    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
+    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
   }
 }
 
