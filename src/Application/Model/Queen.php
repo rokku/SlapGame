@@ -13,13 +13,13 @@ class Queen extends Bees implements Soldier
   }
 
   public function create() {
-    $this->health = 100;
+    $this->health = '100';
     $this->rank = 'queen';
     $this->attack = '7';
     $army = array();
     for($i=0;$i>=$num_of_soldiers;$i++) {
 
-        $army[] = $this->buildSoldier($this->health,$this->rank,$this->attack);
+        $army[] = $this->buildSoldier('100','queen','7');
 
     }
     print_r($army);
