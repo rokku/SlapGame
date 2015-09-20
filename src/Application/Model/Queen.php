@@ -17,6 +17,7 @@ class Queen extends Bees implements Soldier
     $this->rank = 'queen';
     $this->attack = '7';
     $army = array();
+    echo $num_of_soldiers;
     for($i=0;$i<=$num_of_soldiers;$i++) {
 
         $army[] = $this->buildSoldier('100','queen','7');
