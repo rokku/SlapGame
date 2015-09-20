@@ -27,7 +27,7 @@ class Bees
     //Build queens
     $queens = new Queen(3);
     $queenSoldiers = $queens->create();
-
+    print_r($queenSoldiers);
     //Build workers
     $workers = new Worker(5);
     $workerSoldiers = $workers->create();
