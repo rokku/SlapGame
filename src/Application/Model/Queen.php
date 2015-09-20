@@ -9,7 +9,7 @@ class Queen extends Bees implements Soldier
   public $attack;
 
   function __construct($soldiers) {
-    $num_of_soldiers = $soldiers;
+    public $num_of_soldiers = $soldiers;
   }
 
   public function create() {
