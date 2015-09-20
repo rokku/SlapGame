@@ -13,7 +13,12 @@ class Battle
     // but apparently we're really sharp so all hits are 100% likely to land.
 
     $target = $this->chooseBee(); // target acquired
-    $this->hit($target); // Hit the bee, and proceed.
+
+    try {
+      $this->hit($target); // Hit the bee, and proceed.
+    } catch(Exception $e) {
+      echo 'Could not hit. ', $getMessage(), "\n";
+    }
     if($this->countQueens()<=0) { $this->endBattle(); }
     return $target;
   }
@@ -27,29 +32,54 @@ class Battle
   }
 
   private function hit($target) {
-
+    if(!$target) {
+      throw new Exception('You can not hit a missing target.');
+    }
     // Rolling our attack on our target.
-    $this->rollHit($target,(int)$_SESSION["bees"][$target['bee']]['attack'],(int)$_SESSION["bees"][$target['bee']]['health']);
+    try {
+      $this->rollHit($target,(int)$_SESSION["bees"][$target['bee']]['attack'],(int)$_SESSION["bees"][$target['bee']]['health']);
+    } catch(Exception $e) {
+      echo 'The hit could not be rolled: ', $getMessage(), "\n";
+    }
   }
 
   private function rollHit($bee,$attackValue,$currentHP) {
+
+    if(!$bee || !$attackValue || !$currentHP) {
+      throw new Exception('Can not roll a hit with missing values');
+    }
+
     // Calculating how our hit performed.
     $remainingHP = $currentHP-$attackValue;
 
     if($remainingHP <=0) {
       // If health goes beneath 0, the bee is dead.
-      $this->killBee($bee);
+      try {
+        $this->killBee($bee);
+      } catch(Exception $e) {
+        echo 'Failed to kill. ', $getMessage(), "\n";
+      }
     }
     // Update the army array with the health of this bee's node.
-    $this->setHealth($bee,$remainingHP);
+    try {
+      $this->setHealth($bee,$remainingHP);
+    } catch(Exception $e) {
+      echo 'Failed to set health. ', $getMessage(), "\n";
+    }
   }
 
   private function killBee($bee) {
+    if(!$bee) {
+      throw new Exception('Bee missing.');
+    }
     // Finish it off and update the array.
     $_SESSION["bees"][$bee['bee']]["status"]="dead";
   }
 
   private function setHealth($bee,$health) {
+    if(!$bee || !$health) {
+      throw new Exception('Missing value.');
+    }
     // Update bee's health in array.
     $_SESSION["bees"][$bee['bee']]["health"] = $health;
   }
