@@ -4,9 +4,9 @@ use Application\Model\Bees;
 
 class Queen extends Bees implements Soldier
 {
-  public $health = 100;
-  public $rank = 'queen';
-  public $attack = '7';
+  public $health; $this->health = 100;
+  public $rank; = $this->rank = 'queen';
+  public $attack; = $this->attack = '7';
 
   function __construct($soldiers) {
     $num_of_soldiers = $soldiers;
