@@ -27,7 +27,7 @@ class Worker extends Bees implements Soldier
     return $army;
   }
 
-  private function buildSoldier($health,$rank,$attack) {
+  public function buildSoldier($health,$rank,$attack) {
     $soldier['health'] = $health;
     $soldier['rank'] = $rank;
     $soldier['attack'] = $attack;
