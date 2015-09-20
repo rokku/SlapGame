@@ -4,31 +4,32 @@ use Application\Model\Bees;
 
 class Drone extends Bees implements Soldier
 {
-  protected $health = 50;
-  protected $rank = 'drone';
-  protected $attack = '15';
+  public $health = 50;
+  public $rank = 'drone';
+  public $attack = '15';
 
   function __construct($soldiers) {
-    $num_of_soldiers = $soldiers;
+    $this->num_of_soldiers = $soldiers;
   }
 
   public function create() {
-
     $army = array();
 
-    for($i=0;$i<=$num_of_soldiers;$i++) {
+    for($i=1;$i<=$this->num_of_soldiers;$i++) {
 
-        $army[] = $this->buildSolider($health,$rank,$attack);
+        $army[] = $this->buildSoldier($this->health,$this->rank,$this->attack);
 
     }
+    print_r($army);
     return $army;
   }
 
-  private function buildSolider($health,$rank,$attack) {
+  private function buildSoldier($health,$rank,$attack) {
     $soldier['health'] = $health;
     $soldier['rank'] = $rank;
     $soldier['attack'] = $attack;
     $soldier['status'] = 'alive';
+
     return $soldier;
   }
 

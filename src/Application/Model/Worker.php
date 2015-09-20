@@ -4,23 +4,23 @@ use Application\Model\Bees;
 
 class Worker extends Bees implements Soldier
 {
-  protected $health = 75;
-  protected $rank = 'worker';
-  protected $attack = '12';
+  public $health = 75;
+  public $rank = 'worker';
+  public $attack = '12';
 
   function __construct($soldiers) {
-    $num_of_soldiers = $soldiers;
+    $this->num_of_soldiers = $soldiers;
   }
 
   public function create() {
-
     $army = array();
 
-    for($i=0;$i<=$num_of_soldiers;$i++) {
+    for($i=1;$i<=$this->num_of_soldiers;$i++) {
 
-        $army[] = $this->buildSoldier($health,$rank,$attack);
+        $army[] = $this->buildSoldier($this->health,$this->rank,$this->attack);
 
     }
+    print_r($army);
     return $army;
   }
 
@@ -29,6 +29,7 @@ class Worker extends Bees implements Soldier
     $soldier['rank'] = $rank;
     $soldier['attack'] = $attack;
     $soldier['status'] = 'alive';
+
     return $soldier;
   }
 
