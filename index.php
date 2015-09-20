@@ -44,7 +44,7 @@ else {
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>SlappR!</title>
@@ -66,10 +66,28 @@ else {
   </style>
   </head>
   <body>
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Slap The Bee!</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Restart</a></li>
+              <li><a href="http://github.com/rokku/SlapGame">Github</a></li>
+              <li><a href="mark.bridgeman@gmail.com">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
     <?=$showArmy;?>
-        <a href="?hit">Hit</a> | <a href="?restart">Restart</a>
+        <a href="?hit" class="btn btn-danger">Hit</a> | <a href="?restart" class="btn btn-primary">Restart</a>
 
-
+      </div>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
