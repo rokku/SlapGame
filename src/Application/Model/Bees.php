@@ -6,7 +6,7 @@ use Application\Model\Drone;
 
 interface Soldier {
 
-  public function create($rank,$health,$attack);
+  public function create();
 
 }
 
