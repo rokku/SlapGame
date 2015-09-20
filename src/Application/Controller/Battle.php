@@ -34,6 +34,7 @@ class Battle
   }
 
   private function rollHit($bee,$attackValue,$currentHP) {
+    
     $remainingHP = $currentHP-$attackValue;
 
     if($remainingHP <=0) {
@@ -52,12 +53,11 @@ class Battle
   }
 
   private function countQueens() {
-    echo 'Counting queens';
+
     $bees = $_SESSION['bees'];
     $queens = 0;
     foreach($bees AS $key=>$value) {
       foreach($value AS $key2=>$value2) {
-        //print_r($value);
         if($key2=='rank' && $value2=='queen') {
           if($value['status']=='alive') {
             $queens++;
