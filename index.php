@@ -58,34 +58,11 @@ else {
     </style>
   </head>
   <body>
-
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">Slap The Bee!</a>
-
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Restart</a></li>
-              <li><a href="http://github.com/rokku/SlapGame">Github</a></li>
-              <li><a href="mark.bridgeman@gmail.com">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
     <div class="container">
       <ul>
         <?=$showArmy;?>
       </ul>
-        <a href="?hit" class="btn btn-danger" type="button">Hit</a> | <a href="?restart" class="btn btn-primary" type="button">Restart</a>
+        <a href="?hit" class="btn btn-danger" type="button">Hit</a> <a href="?restart" class="btn btn-primary" type="button">Restart</a>
 
       </div>
         <script src="http://code.jquery.com/jquery.js"></script>
