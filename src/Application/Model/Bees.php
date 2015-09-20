@@ -30,9 +30,7 @@ class Bees// extends \ArrayObject
     for($i=1;$i<=$drone;$i++) {
       $army[] = $this->buildSoldier('drone',$i);
     }
-
-      $_SESSION["bees"] = array();
-      $_SESSION["bees"] = $buildArmy;
+    return $army;
   }
 
   private function buildSoldier($rank,$unit) {

@@ -32,7 +32,7 @@ elseif(isset($_GET['restart'])) {
 else {
   $army = new Application\Model\Bees();
   $buildArmy = $army->buildArmy(3,5,7);
-
+  $_SESSION["bees"] = $buildArmy;
 
   foreach($buildArmy AS $key=>$value) {
     $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li><br/>';
