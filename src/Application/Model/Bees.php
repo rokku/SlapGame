@@ -6,7 +6,7 @@ use Application\Model\Drone;
 
 interface Soldier {
 
-  public function create();
+  public function create($army);
 
 }
 
@@ -26,19 +26,17 @@ class Bees
 
     //Build queens
     $queens = new Queen($queen);
-    $queenSoldiers = $queens->create();
+    $army = $queens->create($army);
 
     //Build workers
     $workers = new Worker($worker);
-    $workerSoldiers = $workers->create();
+    $army = $workers->create($army);
 
     //Build drones
     $drones = new Drone($drone);
-    $droneSoldiers = $drones->create();
+    $army = $drones->create($army);
 
-    array_merge($army,$queenSoldiers);
-    array_merge($army,$workerSoldiers);
-    array_merge($army,$droneSoldiers);
+
 print_r($army);
     return $army;
   }

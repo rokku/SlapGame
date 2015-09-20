@@ -12,8 +12,7 @@ class Drone extends Bees implements Soldier
     $this->num_of_soldiers = $soldiers;
   }
 
-  public function create() {
-    $army = array();
+  public function create($army) {
 
     for($i=1;$i<=$this->num_of_soldiers;$i++) {
 
