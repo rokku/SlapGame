@@ -4,9 +4,9 @@ use Application\Model\Bees;
 
 class Drone extends Bee implements Soldier
 {
-  $health = 50;
-  $rank = 'drone';
-  $attack = '15';
+  protected $health = 50;
+  protected $rank = 'drone';
+  protected $attack = '15';
 
   function __construct($soldiers) {
     $num_of_soldiers = $soldiers;
