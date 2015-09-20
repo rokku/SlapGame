@@ -25,22 +25,21 @@ class Bees
     $army = array();
 
     //Build queens
-    $queens = new Queen(3);
+    $queens = new Queen($queen);
     $queenSoldiers = $queens->create();
-    print_r($queenSoldiers);
+
     //Build workers
-    $workers = new Worker(5);
+    $workers = new Worker($worker);
     $workerSoldiers = $workers->create();
 
     //Build drones
-    $drones = new Drone(7);
+    $drones = new Drone($drone);
     $droneSoldiers = $drones->create();
 
     array_push($army,$queenSoldiers);
     array_push($army,$workerSoldiers);
     array_push($army,$droneSoldiers);
 
-    print_r($army);
     return $army;
   }
 
