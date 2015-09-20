@@ -57,9 +57,9 @@ class Battle
     $queens = 0;
     foreach($bees AS $key=>$value) {
       foreach($value AS $key2=>$value2) {
-        print_r($value);
+        //print_r($value);
         if($key2=='rank' && $value2=='queen') {
-          if($key['status']=='alive') {
+          if($value['status']=='alive') {
             $queens++;
           }
         }
