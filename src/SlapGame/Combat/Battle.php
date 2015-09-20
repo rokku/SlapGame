@@ -19,42 +19,43 @@ class Battle
   }
 
   private function chooseBee() {
-    // Only choose bees that are live (hp > 0)
+    // Only choose bees that are alive (hp > 0). It's no good slapping a dead bee. Remember this.
     $target = array_rand($_SESSION['bees']);
     if($_SESSION['bees'][$target]['status']=='dead') {$target = $this->chooseBee();}
     return $target;
   }
 
-  private function hit($bee) {
+  private function hit($target) {
 
-    //echo 'This bee: '.$target.'<br/>';
-
-    $this->rollHit($bee,(int)$_SESSION["bees"][$bee]['attack'],(int)$_SESSION["bees"][$bee]['health']);
-
-
+    // Rolling our attack on our target.
+    $this->rollHit($target,(int)$_SESSION["bees"][$target]['attack'],(int)$_SESSION["bees"][$target]['health']);
   }
 
   private function rollHit($bee,$attackValue,$currentHP) {
-
+    // Calculating how our hit performed.
     $remainingHP = $currentHP-$attackValue;
 
     if($remainingHP <=0) {
+      // If health goes beneath 0, the bee is dead.
       $this->killBee($bee);
     }
-
+    // Update the army array with the health of this bee's node.
     $this->setHealth($bee,$remainingHP);
   }
 
   private function killBee($bee) {
+    // Finish it off and update the array.
     $_SESSION["bees"][$bee]["status"]="dead";
   }
 
   private function setHealth($bee,$health) {
+    // Update bee's health in array.
     $_SESSION["bees"][$bee]["health"] = $health;
   }
 
   private function countQueens() {
-
+    // We need to count the number of queens left after each round.
+    // If all bees die, then the entire game is over.
     $bees = $_SESSION['bees'];
     $queens = 0;
     foreach($bees AS $key=>$value) {
@@ -70,6 +71,8 @@ class Battle
   }
 
   private function endBattle() {
+    // End the battle (usually when all bees are dead, but sometimes when 3 queens die ahead of everything else)
+    // This could be much nicer, but does the job for now.
     echo 'Battle is over';
     exit;
   }
