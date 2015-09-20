@@ -2,7 +2,7 @@
 namespace SlapGame\Army;
 use SlapGame\Army\Queen;
 use SlapGame\Army\Worker;
-use SlapGame\ArmyDrone;
+use SlapGame\Army\Drone;
 
 interface Soldier {
 
