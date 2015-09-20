@@ -2,7 +2,7 @@
 namespace Application\Model;
 use Application\Model\Bees;
 
-class Worker extends Bee implements Soldier
+class Worker extends Bees implements Soldier
 {
   protected $health = 75;
   protected $rank = 'worker';
