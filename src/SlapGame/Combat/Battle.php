@@ -22,14 +22,14 @@ class Battle
     // Only choose bees that are alive (hp > 0). It's no good slapping a dead bee. Remember this.
     $target['bee'] = array_rand($_SESSION['bees']);
     $target['attackValue'] = $_SESSION['bees'][$target['bee']]['attack'];
-    if($_SESSION['bees'][$target]['status']=='dead') {$target = $this->chooseBee();}
+    if($_SESSION['bees'][$target['bee']]['status']=='dead') {$target = $this->chooseBee();}
     return $target;
   }
 
   private function hit($target) {
 
     // Rolling our attack on our target.
-    $this->rollHit($target,(int)$_SESSION["bees"][$target]['attack'],(int)$_SESSION["bees"][$target]['health']);
+    $this->rollHit($target,(int)$_SESSION["bees"][$target['bee']]['attack'],(int)$_SESSION["bees"][$target['bee']]['health']);
   }
 
   private function rollHit($bee,$attackValue,$currentHP) {
@@ -46,12 +46,12 @@ class Battle
 
   private function killBee($bee) {
     // Finish it off and update the array.
-    $_SESSION["bees"][$bee]["status"]="dead";
+    $_SESSION["bees"][$bee['bee']]["status"]="dead";
   }
 
   private function setHealth($bee,$health) {
     // Update bee's health in array.
-    $_SESSION["bees"][$bee]["health"] = $health;
+    $_SESSION["bees"][$bee['bee']]["health"] = $health;
   }
 
   private function countQueens() {
