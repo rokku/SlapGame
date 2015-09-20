@@ -3,6 +3,8 @@ namespace Application\Controller;
 
 class Battle
 {
+  protected $health;
+  protected $attackValue;
 
   public function startAttack() {
 
@@ -12,7 +14,7 @@ class Battle
 
     $target = $this->chooseBee(); // target acquired
     $this->hit($target); // Hit the bee, and proceed.
-
+    $this->countQueens;
   }
 
   private function chooseBee() {
@@ -26,18 +28,36 @@ class Battle
 
     //echo 'This bee: '.$target.'<br/>';
 
-    $health = (int)$_SESSION["bees"][$bee]['health'];
-    //echo 'Health '.$health.'<br/>';
-    $attackValue = (int)$_SESSION["bees"][$bee]['attack'];
-    //echo 'Attack: '.$attackValue;
-    $health = $health-$attackValue;
-    if($health <=0) {
-      $_SESSION["bees"][$bee]["status"]="dead"; echo 'KILL SHOT!';
+    $this->rollHit($bee,(int)$_SESSION["bees"][$bee]['health'],(int)$_SESSION["bees"][$bee]['attack'])
+
+
+  }
+
+  private function rollHit($bee,$attackValue,$currentHP) {
+    $remainingHP = $health-$attackValue;
+
+    if($remainingHP <=0) {
+      $this->killBee($bee);
     }
+
+    $this->setHealth($bee,$remainingHP);
+  }
+
+  private function killBee($bee) {
+    $_SESSION["bees"][$bee]["status"]="dead"; echo 'KILL SHOT!';
+  }
+
+  private function setHealth($bee,$health) {
     $_SESSION["bees"][$bee]["health"] = $health;
-    //echo '<br/>';
+  }
+
+  private function countQueens() {
+
+    $queens = array_keys($_SESSION['bees'],'queen');
+    print_r($queens);
+
   }
 
 }
 
-?>
+ ?>

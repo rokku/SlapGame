@@ -1,10 +1,8 @@
 <?php
 namespace Application\Model;
 
-class Bees// extends \ArrayObject
+class Bees
 {
-//  function __construct() { print "in army";}
-
 
   protected $_type = array(
                       'queen' => array('attack' => 7, 'health' => 100),
