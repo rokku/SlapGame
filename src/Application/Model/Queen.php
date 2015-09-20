@@ -18,7 +18,7 @@ class Queen extends Bees implements Soldier
 
     for($i=0;$i<=$num_of_soldiers;$i++) {
 
-        $army[] = $this->buildSolider($this->$health,$this->$rank,$this->$attack);
+        $army[] = $this->buildSolider($this->health,$this->rank,$this->attack);
 
     }
     print_r($army);
