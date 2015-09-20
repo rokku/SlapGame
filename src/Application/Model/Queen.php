@@ -4,16 +4,18 @@ use Application\Model\Bees;
 
 class Queen extends Bees implements Soldier
 {
-  public $health; $this->health = 100;
-  public $rank; = $this->rank = 'queen';
-  public $attack; = $this->attack = '7';
+  public $health;
+  public $rank; 
+  public $attack;
 
   function __construct($soldiers) {
     $num_of_soldiers = $soldiers;
   }
 
   public function create() {
-
+    $this->health = 100;
+    $this->rank = 'queen';
+    $this->attack = '7';
     $army = array();
     for($i=0;$i>=$this->num_of_soldiers;$i++) {
 
