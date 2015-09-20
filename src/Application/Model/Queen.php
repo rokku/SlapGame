@@ -17,12 +17,13 @@ class Queen extends Bees implements Soldier
     $this->rank = 'queen';
     $this->attack = '7';
     $army = array();
-    echo $this->num_of_soldiers;
+
     for($i=0;$i<=$this->num_of_soldiers;$i++) {
 
         $army[] = $this->buildSoldier('100','queen','7');
 
     }
+    print_r($army);
     return $army;
   }
 
@@ -31,7 +32,7 @@ class Queen extends Bees implements Soldier
     $soldier['rank'] = $rank;
     $soldier['attack'] = $attack;
     $soldier['status'] = 'alive';
-    print_r($soldier);
+
     return $soldier;
   }
 
