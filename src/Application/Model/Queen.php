@@ -15,7 +15,7 @@ class Queen extends Bees implements Soldier
   public function create() {
 
     $army = array();
-echo $this->num_of_soldiers;
+echo $num_of_soldiers;
     for($i=0;$i>=$this->num_of_soldiers;$i++) {
 
         $army[] = $this->buildSolider($this->health,$this->rank,$this->attack);
