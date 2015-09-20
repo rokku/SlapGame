@@ -14,7 +14,7 @@ class Battle
 
     $target = $this->chooseBee(); // target acquired
     $this->hit($target); // Hit the bee, and proceed.
-    $this->countQueens;
+    $this->countQueens();
   }
 
   private function chooseBee() {
@@ -52,7 +52,7 @@ class Battle
   }
 
   private function countQueens() {
-
+    echo 'Counting queens';
     $queens = array_keys($_SESSION['bees'],'queen');
     print_r($queens);
 
