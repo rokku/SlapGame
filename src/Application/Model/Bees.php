@@ -37,6 +37,8 @@ class Bees
     $droneSoldiers = $drones->create();
 
     array_push($army,$queenSoldiers);
+    echo 'army';
+    print_r($army);
     array_push($army,$workerSoldiers);
     array_push($army,$droneSoldiers);
 
