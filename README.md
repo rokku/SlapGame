@@ -10,4 +10,3 @@ What I hope this demonstrates is a clean use of subclasses and inheritance, and 
 
 It's an interesting project, and a problem which I'm sure could result in a quite-complex solution depending on the developer. 
 
-What should be included but unfortunately isn't, due to the short amount of time I've been able to devote to this test, is Exception handling and tests. 
