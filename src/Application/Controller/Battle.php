@@ -28,7 +28,7 @@ class Battle
 
     //echo 'This bee: '.$target.'<br/>';
 
-    $this->rollHit($bee,(int)$_SESSION["bees"][$bee]['health'],(int)$_SESSION["bees"][$bee]['attack'])
+    $this->rollHit($bee,(int)$_SESSION["bees"][$bee]['health'],(int)$_SESSION["bees"][$bee]['attack']);
 
 
   }
