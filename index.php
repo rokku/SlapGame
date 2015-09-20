@@ -32,7 +32,7 @@ if(array_key_exists('hit',$_GET)) {
   // Display the bees. This could be nicer.
   foreach($_SESSION["bees"] AS $key=>$value) {
     if($key == $hit) {$addclass = ' hit';} else {$addclass='';}
-    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].''.$addclass.'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
+    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].''.$addclass.'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].'</li>';
   }
 }
 
@@ -57,7 +57,7 @@ else {
   $_SESSION["bees"] = $buildArmy;
 
   foreach($_SESSION["bees"] AS $key=>$value) {
-    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li>';
+    $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].'</li>';
   }
   $showArmy = $showArmy;
 }
