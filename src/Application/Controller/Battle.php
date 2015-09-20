@@ -54,18 +54,17 @@ class Battle
   private function countQueens() {
     echo 'Counting queens';
     $bees = $_SESSION['bees'];
-    $queens = array();
+    $queens = 0;
     foreach($bees AS $key=>$value) {
       foreach($value AS $key2=>$value2) {
-        $index = $key2.' - '.$value2;
-        if(array_key_exists($index,$queens)) {
-          $queens[$index]++;
-        } else {
-          $queens[$index]=1;
+        if($key2=='rank' && $value2=='queen') {
+          if($key['status']=='alive') {
+            $queens++;
+          }
         }
       }
     }
-    print_r($queens);
+    echo $queens;
   }
 
 }
