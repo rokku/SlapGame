@@ -20,7 +20,8 @@ class Battle
 
   private function chooseBee() {
     // Only choose bees that are alive (hp > 0). It's no good slapping a dead bee. Remember this.
-    $target = array_rand($_SESSION['bees']);
+    $target['bee'] = array_rand($_SESSION['bees']);
+    $target['attackValue'] = $_SESSION['bees'][$target['bee']]['attack'];
     if($_SESSION['bees'][$target]['status']=='dead') {$target = $this->chooseBee();}
     return $target;
   }

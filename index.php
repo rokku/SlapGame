@@ -16,7 +16,6 @@ session_start();
 // Start composer
 require_once __DIR__ . '/vendor/autoload.php';
 
-
 /**
   * If this is a hit, we
   * want to run a battle round
@@ -29,9 +28,10 @@ if(array_key_exists('hit',$_GET)) {
   // startAttack commits a hit against a target, and calculates damage.
   $hit = $attack->startAttack();
 
+  $showArmy = '<h3>A bee was hit for '.$hit['attackValue'].'!</h3>';
   // Display the bees. This could be nicer.
   foreach($_SESSION["bees"] AS $key=>$value) {
-    if($key == $hit) {$addclass = ' hit';} else {$addclass='';}
+    if($key == $hit['bee']) {$addclass = ' hit';} else {$addclass='';}
     $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].' '.$value['rank'].''.$addclass.'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].'</li>';
   }
 }
