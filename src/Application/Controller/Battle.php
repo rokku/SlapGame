@@ -11,7 +11,6 @@ class Battle
     // but apparently we're really sharp so all hits are 100% likely to land.
 
     $target = $this->chooseBee(); // target acquired
-    echo $target;
     $this->hit($target); // Hit the bee, and proceed.
 
   }

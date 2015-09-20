@@ -33,8 +33,6 @@ else {
   $army = new Application\Model\Bees();
   $buildArmy = $army->buildArmy(3,5,7);
 
-  $_SESSION["bees"] = array();
-  $_SESSION["bees"] = $buildArmy;
 
   foreach($buildArmy AS $key=>$value) {
     $showArmy .= '<li id="bee'.$key.'" class="'.$value['status'].'">'.$value['rank'].' #'.$key.' - hp: '.$value['health'].' '.$value['status'].'</li><br/>';
@@ -51,19 +49,20 @@ else {
     <meta charset="utf-8">
     <title>SlappR!</title>
     <style type="text/css">
-     a {   display: block;
-    width: 200px;
-    font-size: 50px;
-    background: #ff0000;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-family: sans-serif;
-    float:left;
-}
+      a {
+        display: block;
+        width: 200px;
+        font-size: 50px;
+        background: #ff0000;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-family: sans-serif;
+        float:left;
+      }
 
-li.dead {background:#efefef;}
-</style>
+      li.dead {background:#efefef;}
+  </style>
   </head>
   <body>
     <?=$showArmy;?>
