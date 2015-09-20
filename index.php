@@ -59,6 +59,7 @@ else {
   </head>
   <body>
     <div class="container">
+      <h2>Slap-A-Bee</h2>
       <ul>
         <?=$showArmy;?>
       </ul>
