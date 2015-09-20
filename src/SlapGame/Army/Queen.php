@@ -15,7 +15,6 @@ class Queen extends Bees implements Soldier
   }
 
   public function create($army) {
-    print_r($army);
     
     // Create the soldiers for this subclass type, and push into
     // the $army array();
