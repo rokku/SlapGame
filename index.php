@@ -50,18 +50,6 @@ else {
     <title>SlappR!</title>
     <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style type="text/css">
-      a {
-        display: block;
-        width: 200px;
-        font-size: 50px;
-        background: #ff0000;
-        color: #fff;
-        text-align: center;
-        text-decoration: none;
-        font-family: sans-serif;
-        float:left;
-      }
-
       li.dead {background:#efefef;}
   </style>
   </head>
