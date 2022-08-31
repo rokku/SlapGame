@@ -17,7 +17,7 @@ class Battle
     try {
       $this->hit($target); // Hit the bee, and proceed.
     } catch(Exception $e) {
-      echo 'Could not hit. ', $getMessage(), "\n";
+      echo 'Could not hit. ', "\n";
     }
     if($this->countQueens()<=0) { $this->endBattle(); }
     return $target;
@@ -39,7 +39,7 @@ class Battle
     try {
       $this->rollHit($target,(int)$_SESSION["bees"][$target['bee']]['attack'],(int)$_SESSION["bees"][$target['bee']]['health']);
     } catch(Exception $e) {
-      echo 'The hit could not be rolled: ', $getMessage(), "\n";
+      echo 'The hit could not be rolled: ', $e->getMessage(), "\n";
     }
   }
 
@@ -57,14 +57,14 @@ class Battle
       try {
         $this->killBee($bee);
       } catch(Exception $e) {
-        echo 'Failed to kill. ', $getMessage(), "\n";
+        echo 'Failed to kill. ', $e->getMessage(), "\n";
       }
     }
     // Update the army array with the health of this bee's node.
     try {
       $this->setHealth($bee,$remainingHP);
     } catch(Exception $e) {
-      echo 'Failed to set health. ', $getMessage(), "\n";
+      echo 'Failed to set health. ', $e->getMessage(), "\n";
     }
   }
 

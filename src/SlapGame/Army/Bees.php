@@ -45,7 +45,7 @@ class Bees
 
   public function create($army) {
     if(!$army) {
-      throw new Exception('No army is available');
+      echo 'No army is available';
     }
     // Create the soldiers for this subclass type, and push into
     // the $army array();
@@ -62,7 +62,7 @@ class Bees
 
   public function buildSoldier($health,$rank,$attack) {
     if(!$health || !$rank || !$attack) {
-      throw new Exception('Any new soldier needs all stats to be presented');
+      echo 'Any new soldier needs all stats to be presented';
     }
     $soldier['health'] = $health;
     $soldier['rank'] = $rank;
